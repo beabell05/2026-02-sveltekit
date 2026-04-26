@@ -1,0 +1,12 @@
+/* Tokens entrypoint: import specific token files.
+	Files are split so they can be imported individually when needed.
+*/
+@import "tokens/colors.css";
+@import "tokens/spacing.css";
+@import "tokens/radius.css";
+@import "tokens/type.css";
+@import "tokens/grid.css";
+@import "tokens/effects.css";
+@import "tokens/transitions.css";
+@import "tokens/states.css";
+@import "tokens/typography.css";

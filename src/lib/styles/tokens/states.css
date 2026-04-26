@@ -1,0 +1,6 @@
+/* Interaction state tokens */
+:root {
+    --state-hover-scale: 1.02;
+    --state-focus-ring: 3px;
+    --state-opacity-muted: 0.6;
+}

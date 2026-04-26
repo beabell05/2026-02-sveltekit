@@ -2,6 +2,10 @@
     --font-primary: "Satoshi", sans-serif;
     --font-secondary: "Inter", sans-serif;
 
-    font-feature-settings: 'liga' 1, 'calt' 1;
-    
+    /* Font weights and variants used in Figma */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+
+    font-feature-settings: "liga" 1, "calt" 1;
 }

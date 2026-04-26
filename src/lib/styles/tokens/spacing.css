@@ -1,0 +1,12 @@
+/* Spacing and layout tokens */
+:root {
+    /* Figma spacing tokens */
+    --spacing/2: 8px;
+    --spacing/4: 16px;
+    --spacing/7: 40px;
+    --spacing/10: 80px;
+
+    /* Layout sizes from Figma */
+    --page-max-width: 1512px;
+    --card-width: 664px;
+}

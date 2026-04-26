@@ -1,0 +1,17 @@
+/* Type scale tokens */
+:root {
+    /* Exact scale from Figma design context */
+    --type-hero: 40px; /* hero and intro paragraphs in Figma */
+    --type-h1: 40px;
+    --leading-h1: 1; /* 100% as in Figma */
+    --type-h2: 24px; /* tabs and card captions */
+    --leading-h2: 1;
+    --type-body: 16px;
+    --leading-body: 1.5;
+    --letter-spacing-tight: 0;
+    /* Small / UI text used across cards and meta */
+    --type-small: 14px;
+
+    /* Icon / control sizes */
+    --icon-size: 24px;
+}
