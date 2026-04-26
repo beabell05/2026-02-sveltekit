@@ -1,6 +1,0 @@
-/* Grid and gap tokens */
-:root {
-    --grid-gap-x: 24px;
-    --grid-gap-y: 24px;
-    --card-aspect: 1.66; /* 664 / 400 */
-}

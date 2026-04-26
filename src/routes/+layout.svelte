@@ -1,10 +1,13 @@
 <script>
-	import favicon from '$lib/assets/favicon.svg';
+import favicon from "$lib/assets/favicon.svg";
+import "$lib/styles/reset.css"; 
+import "$lib/styles/tokens.css"; 
+import "$lib/styles/base.css";
+import "$lib/styles/utilities.css";
 
-	import "$lib/styles/reset.css";
-	import "$lib/styles/tokens.css";
-
-	let { children } = $props();
+import Header from "$lib/components/Header.svelte";
+import Footer from "$lib/components/Footer.svelte";
+let {children} = $props();
 </script>
 
 <svelte:head>
@@ -20,4 +23,6 @@
     <link href="https://fonts.bunny.net/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </svelte:head>
 
+<Header />
 {@render children()}
+<Footer />

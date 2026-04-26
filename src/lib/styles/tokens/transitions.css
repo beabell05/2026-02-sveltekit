@@ -1,6 +1,0 @@
-/* Transition and animation tokens */
-:root {
-    --transition-fast: 150ms;
-    --transition-default: 250ms;
-    --transition-easing: cubic-bezier(0.2,0.8,0.2,1);
-}
