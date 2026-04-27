@@ -11,6 +11,7 @@
     --letter-spacing-tight: 0;
     /* Small / UI text used across cards and meta */
     --type-small: 14px;
+    --type-h3: 20px;
 
     /* Icon / control sizes */
     --icon-size: 24px;

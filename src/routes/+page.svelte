@@ -2,11 +2,11 @@
     import DesktopTabNavigation from '$lib/components/DesktopTabNavigation.svelte';
     import Project from '$lib/components/Project.svelte';
 
-    // Assumiamo che i progetti arrivino dal file +page.js
-    export let data;
+    // Riceviamo i dati dal caricamento della pagina (+page.js)
+    let { data } = $props();
     
-    // Fallback se i dati non sono ancora pronti
-    $: projects = data?.projects || [];
+    // Fallback per i progetti
+    let projects = $derived(data?.projects || []);
 </script>
 
 <main class="page-wrapper">
@@ -28,18 +28,18 @@
         </div>
     </header>
 
-    <section class="projects-grid">
+<section class="projects-grid">
         <div class="grid">
             {#each projects as project}
                 <Project {...project} />
-            {/each}
-        </div>
+            {/each} </div>
     </section>
 </main>
 
 <style>
     .page-wrapper {
-        padding: var(--size-10);
+        /* Figma: 160px sopra/sotto, 80px ai lati */
+        padding: 160px var(--size-10) var(--size-10) var(--size-10);
         max-width: 1440px;
         margin: 0 auto;
         display: flex;
@@ -47,60 +47,69 @@
         gap: var(--size-10);
     }
 
-   .hero-section {
+    .hero-section {
         display: flex;
         flex-direction: column;
-        gap: var(--size-8); /* Mantieni uno spazio generoso */
+        gap: 10px; /* Figma: il titolo e il paragrafo sono vicinissimi */
         max-width: 1100px;
+    }
+
+    .lead-text {
+        max-width: 934px; /* Misura esatta estratta dal tuo Figma */
+    }
+
+    .nav-container {
+        margin-top: 40px; /* Distanza esatta tra testo e tab in Figma */
     }
 
     .main-title {
         font-family: var(--font-primary);
-        /* TORNIAMO AL GRANDE: 40px */
-        font-size: var(--type-h1); 
+        font-size: var(--type-h1); /* 40px */
         font-weight: var(--font-weight-medium);
-        line-height: var(--leading-h1, 1.1); 
+        line-height: 1.1;
         color: var(--color-ink);
         margin: 0;
     }
+
+
 
     .lead-text p {
         font-family: var(--font-primary);
-        /* ANCHE QUI 40px, per renderli un blocco unico visivamente */
-        font-size: var(--type-h1); 
-        line-height: 1.4; 
+        font-size: var(--type-h1); /* 40px per uniformità con il titolo */
+        line-height: 1.3;
         color: var(--color-ink);
         margin: 0;
     }
 
-    .lead-text {
-        max-width: 900px;
-    }
-
-   
-
+    /* Parole chiave viola e corsive */
     .keyword {
         color: var(--hex-brand-500);
         font-style: italic;
     }
 
-    .nav-container {
-        margin-top: var(--size-4);
+    /* Griglia Progetti */
+    .projects-grid {
+        width: 100%;
     }
 
-    /* Griglia Progetti */
     .grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--size-8);
+        grid-template-columns: repeat(2, 1fr); /* 2 colonne */
+        gap: var(--size-8); /* Spazio tra le card (solitamente 32px o 40px) */
     }
 
+    /* Responsive per Tablet e Mobile */
     @media (max-width: 1024px) {
+        .page-wrapper {
+            padding: 80px var(--size-6) var(--size-6) var(--size-6);
+        }
+        
         .grid {
             grid-template-columns: 1fr;
         }
-        .page-wrapper {
-            padding: var(--size-6);
+
+        .main-title, .lead-text p {
+            font-size: var(--type-h2); /* Riduciamo a 24px su schermi piccoli */
         }
     }
 </style>
