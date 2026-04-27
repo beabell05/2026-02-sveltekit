@@ -27,42 +27,36 @@
 </a>
 
 <style>
- .link {
+    .link {
         display: inline-flex;
         align-items: center;
-        gap: var(--size-2);
-        color: var(--color-ink);
+        gap: var(--spacing-2);
+        color: var(--color-content-primary);
         text-decoration: none;
         position: relative;
-        font-family: var(--font-primary);
+        font-family: var(--font-1);
         font-weight: var(--font-weight-medium);
-        
-        /* 👇 MODIFICA QUI: cambiamo da --type-body a --type-h2 */
-        font-size: var(--type-h2); 
-        
+        font-size: var(--type-h2);
         transition: color 0.3s ease;
     }
 
     .link:hover {
-        /* Manteniamo il testo bianco anche in hover per far risaltare solo la linea */
-        color: var(--color-link); 
+        color: var(--color-links-hover);
     }
 
-    /* La linea della sottolineatura (invisibile di default) */
     .link::after {
         content: '';
         position: absolute;
-        bottom: -4px; /* Distanza dal testo */
+        bottom: -4px;
         left: 0;
         width: 100%;
         height: 1px;
-        background-color: var(--hex-brand-500); /* Il tuo viola */
-        transform: scaleX(0); /* Nascosta */
+        background-color: var(--brand-500);
+        transform: scaleX(0);
         transform-origin: right;
         transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
     }
 
-    /* Quando passi il mouse, la linea appare da sinistra verso destra */
     .link:hover::after {
         transform: scaleX(1);
         transform-origin: left;

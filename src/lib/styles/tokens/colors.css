@@ -1,61 +1,68 @@
 :root {
-  /* HEX Colors */
-  /* Brand (from Figma tokens) */
-  --hex-brand-400: #AD68F9;
-  --hex-brand-500: #8A38F5; /* Viola principale */
-  --hex-brand-600: #6B28D2;
-  --hex-brand-700: #4F1CB0;
-  --hex-brand-800: #37118E;
-  --hex-brand-900: #260A75;
+    /* ==========================================
+       PRIMITIVES (Base Colors)
+       ========================================== */
+    /* Brand */
+    --brand-100: #EFD7FE;
+    --brand-200: #D8AFFE;
+    --brand-300: #C487FC;
+    --brand-400: #AD68F9;
+    --brand-500: #8A38F5;
+    --brand-600: #6B28D2;
+    --brand-700: #4F1CB0;
+    --brand-800: #37118E;
+    --brand-900: #260A75;
 
-  /* Neutral */
-  --hex-neutral-50:  #FAFAFA;
-  --hex-neutral-100: #EDEEEF;
-  --hex-neutral-200: #D3D5D8;
-  --hex-neutral-300: #BABDC2;
-  --hex-neutral-400: #999EA5;
-  --hex-neutral-500: #797F88;
-  --hex-neutral-600: #5F646A;
-  --hex-neutral-700: #4A4E53;
-  --hex-neutral-800: #0A0A0A;
-  --hex-neutral-900: #000000; /* Sfondo nerissimo */
+    /* Neutral */
+    --neutral-50:  #FAFAFA;
+    --neutral-100: #EDEEEF;
+    --neutral-200: #D3D5D8;
+    --neutral-300: #BABDC2;
+    --neutral-400: #999EA5;
+    --neutral-500: #797F88;
+    --neutral-600: #5F646A;
+    --neutral-700: #4A4E53;
+    --neutral-800: #1B1A1B;
+    --neutral-900: #030404;
 
-  /* Default: Dark mode tokens (site default) */
-  
-  /* background */
-  --color-canvas: var(--hex-neutral-900);
-  --color-surface: var(--hex-neutral-800);
+    /* ==========================================
+       TOKENS: DARK MODE (Default site theme)
+       ========================================== */
+    /* Background */
+    --color-background-primary: var(--neutral-900);
+    --color-background-secondary: var(--neutral-800);
 
-  /* content */
-  --color-ink: var(--hex-neutral-50);
-  --color-ink-secondary: var(--hex-neutral-400);
-  --color-ink-inverted: var(--hex-neutral-900);
+    /* Content */
+    --color-content-primary: var(--neutral-50);
+    --color-content-secondary: var(--neutral-400);
 
-  /* links */
-  --color-link: var(--hex-brand-500);
+    /* Links */
+    --color-links-default: var(--neutral-50);
+    --color-links-hover: var(--brand-500);
 
-  /* filters */
-  --color-filter-hover: var(--hex-brand-500);
-  --color-filter-selected: var(--hex-brand-600);
+    /* Filter */
+    --color-filter-background-selected: var(--brand-600);
+    --color-filter-content-hover: var(--neutral-100);
+    --color-filter-content-selected: var(--neutral-50);
 }
 
 @media screen and (prefers-color-scheme: dark) {
+    :root {
+        /* Background */
+        --color-background-primary: var(--neutral-50);
+        --color-background-secondary: var(--neutral-100);
 
-  :root {
-    /* background */
-    --color-canvas: var(--hex-neutral-50);
-    --color-surface: var(--hex-neutral-100);
+        /* Content */
+        --color-content-primary: var(--neutral-900);
+        --color-content-secondary: var(--neutral-500);
 
-    /* content */
-    --color-ink: var(--hex-neutral-900);
-    --color-ink-secondary: var(--hex-neutral-500);
-    --color-ink-inverted: var(--hex-neutral-50);
+        /* Links */
+        --color-links-default: var(--neutral-900);
+        --color-links-hover: var(--brand-500);
 
-    /* links */
-    --color-link: var(--hex-brand-500);
-
-    /* filters */
-    --color-filter-hover: var(--hex-neutral-200); 
-    --color-filter-selected: var(--hex-brand-500);
-  }
+        /* Filter */
+        --color-filter-background-selected: var(--brand-500);
+        --color-filter-content-hover: var(--neutral-200);
+        --color-filter-content-selected: var(--neutral-50);
+    }
 }

@@ -1,15 +1,47 @@
 :root {
-    --base-size: 1rem; /* 16px */
+    /* ==========================================
+       PRIMITIVES (Units in px)
+       ========================================== */
+    --unit-0: 0px;
+    --unit-4: 4px;
+    --unit-8: 8px;
+    --unit-12: 12px;
+    --unit-16: 16px;
+    --unit-20: 20px;
+    --unit-24: 24px;
+    --unit-32: 32px;
+    --unit-40: 40px;
+    --unit-48: 48px;
+    --unit-56: 56px;
+    --unit-64: 64px;
+    --unit-72: 72px;
+    --unit-80: 80px;
+    --unit-160: 160px;
+    --unit-999: 999px;
 
-    --size-1:  calc(var(--base-size) * 0.25);  /* 4px  */
-    --size-2:  calc(var(--base-size) * 0.5);   /* 8px  */
-    --size-3:  calc(var(--base-size) * 0.75);  /* 12px */
-    --size-4:  calc(var(--base-size) * 1);     /* 16px */
-    --size-5:  calc(var(--base-size) * 1.5);   /* 24px */
-    --size-6:  calc(var(--base-size) * 2);     /* 32px */
-    --size-7:  calc(var(--base-size) * 2.5);   /* 40px */
-    --size-8:  calc(var(--base-size) * 3.5);   /* 56px */
-    --size-9:  calc(var(--base-size) * 4.5);   /* 72px */
-    --size-10: calc(var(--base-size) * 5);     /* 80px */
-    --size-11: calc(var(--base-size) * 10);    /* 160px */
+    /* ==========================================
+       TOKENS: SPACING & RADIUS
+       ========================================== */
+    /* Spacing */
+    --spacing-0: var(--unit-0);
+    --spacing-1: var(--unit-4);
+    --spacing-2: var(--unit-8);
+    --spacing-3: var(--unit-12);
+    --spacing-4: var(--unit-16);
+    --spacing-5: var(--unit-24);
+    --spacing-6: var(--unit-32);
+    --spacing-7: var(--unit-40);
+    --spacing-8: var(--unit-56);
+    --spacing-9: var(--unit-72);
+    --spacing-10: var(--unit-80);
+    --spacing-11: var(--unit-160);
+
+    /* Radius */
+    --radius-none: var(--unit-0);
+    --radius-xs: var(--unit-4);
+    --radius-s: var(--unit-8);
+    --radius-m: var(--unit-12);
+    --radius-l: var(--unit-16);
+    --radius-xl: var(--unit-32);
+    --radius-full: var(--unit-999);
 }

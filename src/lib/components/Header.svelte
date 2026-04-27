@@ -13,36 +13,31 @@
 
 <style>
     header {
-        /* SPAZIATURE CON I TOKEN */
-        /* Usa --size-6 (32px) per il padding verticale e --size-10 per quello orizzontale */
-        padding: var(--size-6) var(--size-10); 
-        
-        /* TIPOGRAFIA CON I TOKEN */
-        font-family: var(--font-primary);
-        font-size: var(--size-5);
+        /* SPAZIATURE E TIPOGRAFIA CON I NUOVI TOKEN */
+        padding: var(--spacing-6) var(--spacing-10);
+        font-family: var(--font-1);
+        font-size: var(--type-h2);
         font-weight: var(--font-weight-medium);
-        color: var(--color-ink);
+        color: var(--color-content-primary);
 
         display: flex;
         justify-content: space-between;
         align-items: center;
-        box-sizing: border-box; 
+        box-sizing: border-box;
         
-        /* EFFETTO STICKY & GLASSMORPHISM */
+        /* EFFETTO STICKY */
         position: sticky;
         top: 0;
         z-index: 100;
-        
-        /* Qui usiamo rgba perché i token base solitamente non supportano l'opacità, 
-           a meno che tu non abbia un token specifico tipo var(--color-glass) */
-        background-color: rgba(0, 0, 0, 0.4); 
+        /* Usiamo il tuo nero di base per l'opacità */
+        background-color: rgba(3, 4, 4, 0.4); 
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
     }
 
     nav {
         display: flex;
-        gap: var(--size-5); 
+        gap: var(--spacing-5);
         align-items: center;
     }
 </style>

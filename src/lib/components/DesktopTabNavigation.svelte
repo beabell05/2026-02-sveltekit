@@ -35,33 +35,29 @@
 <style>
     .tabs {
         display: flex;
-        gap: var(--size-6);
-        margin-top: var(--size-6);
+        gap: var(--spacing-5);
         align-items: center;
     }
 
-.tab {
+    .tab {
         background: transparent;
         border: none;
         color: #ffffff;
-        padding: var(--size-2) var(--size-5); 
-        border-radius: 999px;
+        padding: var(--spacing-2) var(--spacing-4);
+        border-radius: var(--radius-full);
         cursor: pointer;
-        
-        /* RIMETTIAMO IL TUO TOKEN ORIGINALE: 24px */
-        font-size: var(--type-h2); 
-        
-        font-family: var(--font-primary);
+        font-size: var(--type-h2);
+        font-family: var(--font-1);
         font-weight: var(--font-weight-medium);
         transition: all 0.2s ease-out;
     }
 
     .tab.active {
-        background-color: var(--hex-brand-500);
+        background-color: var(--brand-500);
         color: #ffffff;
     }
 
     .tab:not(.active):hover {
-        color: var(--hex-brand-500); /* <-- MODIFICA: Al passaggio del mouse diventa viola */
+        color: var(--brand-500);
     }
 </style>

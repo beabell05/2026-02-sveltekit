@@ -38,70 +38,66 @@
 
 <style>
     .page-wrapper {
-        /* Figma: 160px sopra/sotto, 80px ai lati */
-        padding: 160px var(--size-10) var(--size-10) var(--size-10);
+        padding: var(--spacing-11) var(--spacing-10) var(--spacing-10) var(--spacing-10);
         max-width: 1440px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        gap: var(--size-10);
+        gap: var(--spacing-10);
     }
 
     .hero-section {
         display: flex;
         flex-direction: column;
-        gap: 10px; /* Figma: il titolo e il paragrafo sono vicinissimi */
+        /* Usiamo 12px (--spacing-3) invece dei vecchi 10px scritti a mano */
+        gap: var(--spacing-3); 
         max-width: 1100px;
     }
 
     .lead-text {
-        max-width: 934px; /* Misura esatta estratta dal tuo Figma */
+        max-width: 934px;
     }
 
     .nav-container {
-        margin-top: 40px; /* Distanza esatta tra testo e tab in Figma */
+        margin-top: var(--spacing-7); /* Sostituisce il vecchio 40px */
     }
 
     .main-title {
-        font-family: var(--font-primary);
-        font-size: var(--type-h1); /* 40px */
+        font-family: var(--font-1);
+        font-size: var(--type-h1);
         font-weight: var(--font-weight-medium);
         line-height: 1.1;
-        color: var(--color-ink);
+        color: var(--color-content-primary);
         margin: 0;
     }
-
-
 
     .lead-text p {
-        font-family: var(--font-primary);
-        font-size: var(--type-h1); /* 40px per uniformità con il titolo */
+        font-family: var(--font-1);
+        font-size: var(--type-h1);
         line-height: 1.3;
-        color: var(--color-ink);
+        color: var(--color-content-primary);
         margin: 0;
     }
 
-    /* Parole chiave viola e corsive */
     .keyword {
-        color: var(--hex-brand-500);
+        color: var(--brand-500);
         font-style: italic;
     }
 
-    /* Griglia Progetti */
     .projects-grid {
         width: 100%;
     }
 
     .grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 colonne */
-        gap: var(--size-8); /* Spazio tra le card (solitamente 32px o 40px) */
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-8);
     }
 
-    /* Responsive per Tablet e Mobile */
+    /* Responsive */
     @media (max-width: 1024px) {
         .page-wrapper {
-            padding: 80px var(--size-6) var(--size-6) var(--size-6);
+            padding: var(--spacing-10) var(--spacing-6) var(--spacing-6) var(--spacing-6);
         }
         
         .grid {
@@ -109,7 +105,7 @@
         }
 
         .main-title, .lead-text p {
-            font-size: var(--type-h2); /* Riduciamo a 24px su schermi piccoli */
+            font-size: var(--type-h2);
         }
     }
 </style>
