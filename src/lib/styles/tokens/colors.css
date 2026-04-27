@@ -17,12 +17,30 @@
     --hex-neutral-500: #797F88;
     --hex-neutral-600: #5F646A;
     --hex-neutral-700: #4A4E53;
-    --hex-neutral-800: #181A1B;
-    --hex-neutral-900: #030404;
+    --hex-neutral-800: #0A0A0A;
+    --hex-neutral-900: #000000;
+
+    /* Default: Dark mode tokens (site default)
+       Light mode is provided as an override below. */
+
+    /* background */
+    --color-canvas: var(--hex-neutral-900);
+    --color-surface: var(--hex-neutral-800);
+
+    /* content */
+    --color-ink: var(--hex-neutral-50);
+    --color-ink-secondary: var(--hex-neutral-400);
+    --color-ink-inverted: var(--hex-neutral-900);
+
+    /* links */
+    --color-link: var(--hex-brand-500);
+
+    /* filters */
+    --color-filter--hover: var(--hex-brand-500);
+    --color-filter--selected: var(--hex-brand-600);
 }
 
-
-/* Named colors mapped from HEX tokens using prefers-color-scheme media queries */
+/* Opt-in: light-mode override when user/agent prefers light */
 @media screen and (prefers-color-scheme: light) {
     /* background */
     --color-canvas: var(--hex-neutral-50);
@@ -38,24 +56,6 @@
 
     /* filters */
     --color-filter--hover: var(--hex-neutral-100);
-    --color-filter--selected: var(--hex-brand-600);
-}
-
-@media screen and (prefers-color-scheme: dark) {
-    /* background */
-    --color-canvas: var(--hex-neutral-900);
-    --color-surface: var(--hex-neutral-800);
-
-    /* content */
-    --color-ink: var(--hex-neutral-50);
-    --color-ink-secondary: var(--hex-neutral-400);
-    --color-ink-inverted: var(--hex-neutral-900);
-
-    /* links */
-    --color-link: var(--hex-brand-500);
-
-    /* filters */
-    --color-filter--hover: var(--hex-brand-500);
     --color-filter--selected: var(--hex-brand-600);
 }
 
