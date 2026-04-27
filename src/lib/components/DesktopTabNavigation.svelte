@@ -40,14 +40,17 @@
         align-items: center;
     }
 
-    .tab {
+.tab {
         background: transparent;
         border: none;
-        color: #ffffff; /* <-- MODIFICA: Testo di default sempre bianco */
-        padding: calc(var(--size-3)) calc(var(--size-6));
+        color: #ffffff;
+        padding: var(--size-2) var(--size-5); 
         border-radius: 999px;
         cursor: pointer;
-        font-size: var(--type-h2);
+        
+        /* RIMETTIAMO IL TUO TOKEN ORIGINALE: 24px */
+        font-size: var(--type-h2); 
+        
         font-family: var(--font-primary);
         font-weight: var(--font-weight-medium);
         transition: all 0.2s ease-out;

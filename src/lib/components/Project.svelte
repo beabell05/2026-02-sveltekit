@@ -22,30 +22,28 @@
 <style>
   .project { display: block; color: inherit; text-decoration: none; }
 
-  .img-box {
+.img-box {
     position: relative;
-    width: 100%;
-    aspect-ratio: 664 / 400;
     overflow: hidden;
-    filter: blur(0);
-  }
+    background-color: var(--color-brand); /* Sfondo viola che si vedrà in trasparenza */
+    border-radius: var(--size-2); /* Mantieni il tuo border-radius */
+}
 
-  .img-box img {
+.img-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    transform: translateY(-10%);
-  }
+    /* Effetto di default: sfocato e semi-trasparente per far passare il viola sotto */
+    filter: blur(10px);
+    opacity: 0.5;
+    transition: all 0.4s ease-in-out;
+}
 
-  .img-box .hover {
-    position: absolute;
-    inset: 0;
-    background: var(--hex-brand-500);
-    mix-blend-mode: soft-light;
-    opacity: 0.9;
-    pointer-events: none;
-  }
+/* Cosa succede quando passi il mouse sulla card */
+.img-box:hover img {
+    filter: blur(0);
+    opacity: 1;
+}
 
   .meta { margin-top: var(--size-3); display:flex; gap: var(--size-1); align-items: baseline; }
   .title { color: var(--color-ink); font-family: var(--font-primary); font-weight: 500; }

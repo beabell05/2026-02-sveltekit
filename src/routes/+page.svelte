@@ -1,79 +1,106 @@
-
-
 <script>
-	import Filter from "$lib/components/Filter.svelte";
-	import Project from "$lib/components/Project.svelte";
-	import DesktopTabNavigation from "$lib/components/DesktopTabNavigation.svelte";
+    import DesktopTabNavigation from '$lib/components/DesktopTabNavigation.svelte';
+    import Project from '$lib/components/Project.svelte';
 
-	export let data = { years: [] };
-
-	let currentYear = data.years?.[0]?.number ?? null;
-
-	$: projects = currentYear != null ? data.years.find((year) => year.number == currentYear)?.projects ?? [] : [];
-
+    // Assumiamo che i progetti arrivino dal file +page.js
+    export let data;
+    
+    // Fallback se i dati non sono ancora pronti
+    $: projects = data?.projects || [];
 </script>
 
-<section class="safe-area hero">
-	<h1>
-		A personal visual record of traces left behind.
-	</h1>
+<main class="page-wrapper">
+    <header class="hero-section">
+        <h1 class="main-title">
+            A personal visual record of traces left behind.
+        </h1>
 
-	<p class="lead">
-		From the quiet <span class="accent">Sanctuary</span> of private spaces to the landscapes of the <span class="accent">Afar</span>. Across these frames, <span class="accent italic">Kinetic</span> movement meets the stillness of monochrome nostalgic <span class="accent italic">Echoes</span>. This space is just an invitation to pause over the smallest <span class="accent italic">Minutiae</span> and the silent language of <span class="accent italic">Gazes</span> met along the way.
-	</p>
+        <div class="lead-text">
+            <p>
+                From the quiet <span class="keyword">Sanctuary</span> of private spaces to the landscapes of the <span class="keyword">Afar</span>. 
+                Across these frames, <span class="keyword">Kinetic</span> movement meets the stillness of monochrome nostalgic <span class="keyword">Echoes</span>. 
+                This space is just an invitation to pause over the smallest <span class="keyword">Minutiae</span> and the silent language of <span class="keyword">Gazes</span> met along the way.
+            </p>
+        </div>
 
-				<DesktopTabNavigation />
+        <div class="nav-container">
+            <DesktopTabNavigation />
+        </div>
+    </header>
 
-</section>
-
-<nav class="safe-area filters">
-	{#each data.years as year}
-		<Filter bind:group={currentYear} value={year.number} />
-	{/each}
-</nav>
-
-<section class="safe-area projects">
-{#each projects as project}
-<Project data={project.data} />
-{/each}
-</section>
-
+    <section class="projects-grid">
+        <div class="grid">
+            {#each projects as project}
+                <Project {...project} />
+            {/each}
+        </div>
+    </section>
+</main>
 
 <style>
-	.hero {
-		padding-block: var(--size-11);
-	}
+    .page-wrapper {
+        padding: var(--size-10);
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-10);
+    }
 
-	.hero h1 {
-		font-size: var(--type-hero);
-		max-width: 70ch;
-		margin-bottom: var(--size-4);
-		color: var(--color-ink);
-		font-family: var(--font-primary);
-		font-weight: var(--font-weight-medium);
-	}
+   .hero-section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-8); /* Mantieni uno spazio generoso */
+        max-width: 1100px;
+    }
 
-	.lead {
-		font-size: var(--type-h2);
-		max-width: 70ch;
-		color: var(--color-ink);
-		margin-top: var(--size-4);
-		line-height: 1.5;
-	}
+    .main-title {
+        font-family: var(--font-primary);
+        /* TORNIAMO AL GRANDE: 40px */
+        font-size: var(--type-h1); 
+        font-weight: var(--font-weight-medium);
+        line-height: var(--leading-h1, 1.1); 
+        color: var(--color-ink);
+        margin: 0;
+    }
 
-	.accent { color: var(--hex-brand-500); font-weight: var(--font-weight-medium); }
-	.italic { font-style: italic; }
+    .lead-text p {
+        font-family: var(--font-primary);
+        /* ANCHE QUI 40px, per renderli un blocco unico visivamente */
+        font-size: var(--type-h1); 
+        line-height: 1.4; 
+        color: var(--color-ink);
+        margin: 0;
+    }
 
-	.filters {
-		display: flex;
-		align-items: center;
-		gap: var(--size-5);
-	}
+    .lead-text {
+        max-width: 900px;
+    }
 
-	.projects {
-		padding-block: var(--size-7);
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: var(--size-5);
-	}
+   
+
+    .keyword {
+        color: var(--hex-brand-500);
+        font-style: italic;
+    }
+
+    .nav-container {
+        margin-top: var(--size-4);
+    }
+
+    /* Griglia Progetti */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--size-8);
+    }
+
+    @media (max-width: 1024px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+        .page-wrapper {
+            padding: var(--size-6);
+        }
+    }
 </style>
