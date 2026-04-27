@@ -46,11 +46,16 @@
         gap: var(--spacing-10);
     }
 
-    .hero-section {
+.hero-section {
         display: flex;
         flex-direction: column;
-        /* Usiamo 12px (--spacing-3) invece dei vecchi 10px scritti a mano */
-        gap: var(--spacing-3); 
+        
+        /* Modifica il gap da --spacing-3 a un token più grande!
+           --spacing-7 corrisponde a 40px, che equivale all'altezza di una riga.
+           (Se lo vuoi ancora più staccato, puoi provare --spacing-8 che è 56px) 
+        */
+        gap: var(--spacing-7); 
+        
         max-width: 1100px;
     }
 
@@ -71,9 +76,10 @@
         margin: 0;
     }
 
-    .lead-text p {
+  .lead-text p {
         font-family: var(--font-1);
         font-size: var(--type-h1);
+        font-weight: var(--font-weight-medium); /* <-- AGGIUNGI QUESTA RIGA */
         line-height: 1.3;
         color: var(--color-content-primary);
         margin: 0;

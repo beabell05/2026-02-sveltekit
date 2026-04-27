@@ -1,27 +1,38 @@
 <script>
-import favicon from "$lib/assets/favicon.svg";
-import "$lib/styles/reset.css"; 
-import "$lib/styles/tokens.css"; 
-import "$lib/styles/base.css";
-import "$lib/styles/utilities.css";
+    import favicon from '$lib/assets/favicon.svg';
 
-import Header from "$lib/components/Header.svelte";
-import Footer from "$lib/components/Footer.svelte";
+    /* ==========================================
+       1. STILI GLOBALI E TOKEN
+       ========================================== */
+    import '$lib/styles/reset.css';
+    import '$lib/styles/tokens.css'; /* Carica tutti i colori, misure e tipografia */
+    import '$lib/styles/base.css';
+    import '$lib/styles/utilities.css';
+
+    /* ==========================================
+       2. COMPONENTI DI LAYOUT
+       ========================================== */
+    import Header from '$lib/components/Header.svelte';
+    import Footer from '$lib/components/Footer.svelte';
+
+    /* ==========================================
+       3. GESTIONE DEL CONTENUTO (SVELTE 5)
+       ========================================== */
+    let { children } = $props();
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+    <link rel="icon" href={favicon} />
 
-	<!-- Satoshi font -->
-	<link rel="preconnect" href="https://api.fontshare.com/" />
-	<link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
 
-	<!-- Inter font -->
-	<link rel="preconnect" href="https://fonts.bunny.net">
-    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
-    <link href="https://fonts.bunny.net/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link href="https://fonts.bunny.net/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" crossorigin />
 </svelte:head>
 
 <Header />
-<slot />
+
+{@render children()}
+
 <Footer />

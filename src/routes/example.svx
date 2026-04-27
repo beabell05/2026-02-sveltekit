@@ -1,9 +1,0 @@
----
-title: Example mdsvex content
----
-
-# Example content
-
-This is a test page written with mdsvex. It confirms `.svx` files are processed.
-
-<a href="/">Back home</a>
