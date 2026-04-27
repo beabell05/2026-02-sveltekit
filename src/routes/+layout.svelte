@@ -7,7 +7,6 @@ import "$lib/styles/utilities.css";
 
 import Header from "$lib/components/Header.svelte";
 import Footer from "$lib/components/Footer.svelte";
-let {children} = $props();
 </script>
 
 <svelte:head>
@@ -24,5 +23,5 @@ let {children} = $props();
 </svelte:head>
 
 <Header />
-{@render children()}
+<slot />
 <Footer />
