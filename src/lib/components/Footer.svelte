@@ -1,20 +1,31 @@
 <script>
-import polimi from "$lib/assets/polimi.png"; 
+    import polimiLogo from '$lib/assets/polimi-logo.png';
 </script>
 
-<footer class="safe-area">
-<img src={polimi} alt="Politecnico di Milano" /> 
+<footer>
+    <img src={polimiLogo} alt="Logo Politecnico di Milano 1863" />
 </footer>
 
 <style>
     footer {
-        padding-block: var(--spacing-4);
+        /* Assicuriamoci che prenda tutta la larghezza dello schermo */
+        width: 100%;
+        
+        /* Flexbox per centrare perfettamente il logo */
         display: flex;
         justify-content: center;
         align-items: center;
+        
+        /* Padding da Figma */
+        padding: var(--spacing-4) var(--spacing-10);
+        background-color: var(--color-background-primary);
+        box-sizing: border-box;
     }
-    
+
     img {
-        height: var(--spacing-9);
+        /* Altezza estratta dal tuo screenshot di Figma */
+        height: 78px;
+        width: auto;
+        object-fit: contain;
     }
 </style>

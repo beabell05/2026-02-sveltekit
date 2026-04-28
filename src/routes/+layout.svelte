@@ -16,9 +16,8 @@
     import Footer from '$lib/components/Footer.svelte';
 
     /* ==========================================
-       3. GESTIONE DEL CONTENUTO (SVELTE 5)
+       3. GESTIONE DEL CONTENUTO
        ========================================== */
-    let { children } = $props();
 </script>
 
 <svelte:head>
@@ -33,6 +32,6 @@
 
 <Header />
 
-{@render children()}
+<slot />
 
 <Footer />

@@ -30,7 +30,7 @@
         top: 0;
         z-index: 100;
         /* Usiamo il tuo nero di base per l'opacità */
-        background-color: rgba(3, 4, 4, 0.4); 
+        background-color: rgba(0, 0, 0, 0.084); 
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
     }

@@ -1,32 +1,29 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
-    const dispatch = createEventDispatcher();
-
-    export let items = [
-        'Sanctuary',
-        'Afar',
-        'Echoes',
-        'Kinetic',
-        'Minutiae',
-        'Gazes'
-    ];
-
-    let active = items[0];
-
-    function select(item) {
-        active = item;
-        dispatch('select', { item });
-    }
+    // Usiamo $props() di Svelte 5 invece del vecchio createEventDispatcher
+    let {
+        items = [
+            'Sanctuary',
+            'Afar',
+            'Echoes',
+            'Kinetic',
+            'Minutiae',
+            'Gazes'
+        ],
+        // Riceviamo la categoria attualmente selezionata da +page.svelte
+        activeCategory = 'Sanctuary',
+        // Riceviamo la funzione che cambia la categoria quando clicchi
+        onCategoryChange
+    } = $props();
 </script>
 
 <div class="tabs" role="tablist" aria-label="Sections">
     {#each items as item}
         <button
             class="tab"
-            class:active={item === active}
+            class:active={item === activeCategory}
             role="tab"
-            aria-selected={item === active}
-            on:click={() => select(item)}>
+            aria-selected={item === activeCategory}
+            onclick={() => onCategoryChange(item)}>
             {item}
         </button>
     {/each}
@@ -44,7 +41,7 @@
         border: none;
         color: #ffffff;
         padding: var(--spacing-2) var(--spacing-4);
-        border-radius: var(--radius-full);
+        border-radius: var(--radius-full); /* Arrotondamento a pillola */
         cursor: pointer;
         font-size: var(--type-h2);
         font-family: var(--font-1);
@@ -52,11 +49,13 @@
         transition: all 0.2s ease-out;
     }
 
+    /* Stile per il tab selezionato (la tua pillola viola) */
     .tab.active {
         background-color: var(--brand-500);
         color: #ffffff;
     }
 
+    /* Effetto hover solo per i tab inattivi: il testo diventa viola passandoci sopra */
     .tab:not(.active):hover {
         color: var(--brand-500);
     }

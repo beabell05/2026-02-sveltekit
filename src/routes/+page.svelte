@@ -5,8 +5,13 @@
     // Riceviamo i dati dal caricamento della pagina (+page.js)
     let { data } = $props();
     
-    // Fallback per i progetti
-    let projects = $derived(data?.projects || []);
+    // Partiamo da 'Echoes', visto che lì hai creato i primi progetti!
+    let selectedCategory = $state('Echoes');
+
+    // Filtriamo i progetti. Aggiunto "data?.projects || []" per evitare blocchi se la cartella è vuota
+    let filteredProjects = $derived(
+        (data?.projects || []).filter(p => p.category === selectedCategory)
+    );
 </script>
 
 <main class="page-wrapper">
@@ -24,19 +29,30 @@
         </div>
 
         <div class="nav-container">
-            <DesktopTabNavigation />
+            <DesktopTabNavigation 
+                activeCategory={selectedCategory} 
+                onCategoryChange={(item) => selectedCategory = item} 
+            />
         </div>
     </header>
 
-<section class="projects-grid">
+    <section class="projects-grid">
         <div class="grid">
-            {#each projects as project}
-                <Project {...project} />
-            {/each} </div>
+            {#if filteredProjects.length === 0}
+                <p class="empty-message">
+                    Nessun progetto trovato in {selectedCategory}.
+                </p>
+            {:else}
+                {#each filteredProjects as project}
+                    <Project {...project} />
+                {/each}
+            {/if}
+        </div>
     </section>
 </main>
 
 <style>
+    /* Layout Generale */
     .page-wrapper {
         padding: var(--spacing-11) var(--spacing-10) var(--spacing-10) var(--spacing-10);
         max-width: 1440px;
@@ -46,25 +62,11 @@
         gap: var(--spacing-10);
     }
 
-.hero-section {
+    .hero-section {
         display: flex;
         flex-direction: column;
-        
-        /* Modifica il gap da --spacing-3 a un token più grande!
-           --spacing-7 corrisponde a 40px, che equivale all'altezza di una riga.
-           (Se lo vuoi ancora più staccato, puoi provare --spacing-8 che è 56px) 
-        */
-        gap: var(--spacing-7); 
-        
+        gap: var(--spacing-7); /* La riga vuota di respiro tra titolo e paragrafo */
         max-width: 1100px;
-    }
-
-    .lead-text {
-        max-width: 934px;
-    }
-
-    .nav-container {
-        margin-top: var(--spacing-7); /* Sostituisce il vecchio 40px */
     }
 
     .main-title {
@@ -76,10 +78,14 @@
         margin: 0;
     }
 
-  .lead-text p {
+    .lead-text {
+        max-width: 934px;
+    }
+
+    .lead-text p {
         font-family: var(--font-1);
         font-size: var(--type-h1);
-        font-weight: var(--font-weight-medium); /* <-- AGGIUNGI QUESTA RIGA */
+        font-weight: var(--font-weight-medium);
         line-height: 1.3;
         color: var(--color-content-primary);
         margin: 0;
@@ -90,6 +96,11 @@
         font-style: italic;
     }
 
+    .nav-container {
+        margin-top: var(--spacing-7); 
+    }
+
+    /* Griglia Progetti */
     .projects-grid {
         width: 100%;
     }
@@ -100,7 +111,15 @@
         gap: var(--spacing-8);
     }
 
-    /* Responsive */
+    .empty-message {
+        grid-column: 1 / -1;
+        color: var(--color-content-secondary);
+        font-family: var(--font-1);
+        font-size: var(--type-h2);
+        padding: var(--spacing-10) 0;
+    }
+
+    /* Responsive per Tablet e Mobile */
     @media (max-width: 1024px) {
         .page-wrapper {
             padding: var(--spacing-10) var(--spacing-6) var(--spacing-6) var(--spacing-6);

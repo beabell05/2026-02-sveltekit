@@ -1,25 +1,19 @@
 <script>
     import Icon from "$lib/components/Icon.svelte";
 
-    let {
-        ref = '#',
-        title = null,
-        children,
-        leadingIcon = null,
-        trailingIcon = null
-    } = $props();
+    export let ref = '#';
+    export let title = null;
+    export let leadingIcon = null;
+    export let trailingIcon = null;
 </script>
 
 <a href={ref} {title} class="link">
     {#if leadingIcon}
         <Icon name={leadingIcon} />
     {/if}
-    
-    {#if children}
-        {@render children()}
-    {:else if title}
-        {title}
-    {/if}
+    <slot>
+        {#if title}{title}{/if}
+    </slot>
     
     {#if trailingIcon}
         <Icon name={trailingIcon} />
