@@ -75,12 +75,12 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: blur(15px);
-        opacity: 0.35;
+        filter: blur(7px);
+        opacity: 0.4;
         transform: scale(1);
-        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                    filter 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
+                    filter 2s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .project-card:hover .img-box img {

@@ -1,3 +1,5 @@
+import Project from '$lib/content/project.js';
+
 export async function load() {
     // Prima prova: carica i markdown (dev mode)
     const modules = import.meta.glob('../lib/content/projects/**/*.md', { eager: true });

@@ -5,7 +5,7 @@
     let { data } = $props();
     
     // Categoria iniziale
-    let selectedCategory = $state('Echoes');
+  let selectedCategory = $state('Sanctuary');
 
     // Lista filtrata reattiva
     let filteredProjects = $derived(
