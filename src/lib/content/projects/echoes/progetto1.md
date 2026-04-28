@@ -1,6 +1,7 @@
 ---
-title: Flatfade 
-year: 2025
-link: https://wddc-groupieml.webflow.io/ 
-thumbnail: /images/projects/2025/flatfade.JPG
+title: Echoes One
+year: 2026
+category: Echoes
+thumbnail: /images/projects/echoes/echoes/echoes1.jpg
+link: /
 ---

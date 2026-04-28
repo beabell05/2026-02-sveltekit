@@ -1,21 +1,14 @@
 <script>
-  export let data = {};
-  const title = data.title ?? 'Project Name';
-  const year = data.year ?? '';
-  const href = data.link ?? '#';
-  const thumb = data.thumbnail ?? '/images/imgImg.jpg';
+  // Accept named props so callers can do <Project {...project} />
+  export let title = 'Project Name';
+  export let year = '';
+  export let link = '#';
+  export let thumbnail = '/images/img1.jpg';
 </script>
 
-<a class="project" href={href} target="_blank" rel="noopener noreferrer">
-  <div class="img-box">
-    <img src={thumb} alt={title} />
-    <div class="hover" aria-hidden="true"></div>
-  </div>
-
-  <div class="meta">
-    <span class="title">{title}</span>
-    <span class="sep"> / </span>
-    <span class="year">{year}</span>
+<a class="project" href={link} target="_blank" rel="noopener noreferrer">
+  <div class="img-box" aria-hidden="true">
+    <img src={thumbnail} alt="" />
   </div>
 </a>
 
@@ -25,38 +18,15 @@
     .img-box {
         position: relative;
         overflow: hidden;
-        background-color: var(--brand-500);
+        background-color: #111;
         border-radius: var(--radius-s);
+        height: 220px;
     }
 
     .img-box img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: blur(10px);
-        opacity: 0.5;
-        transition: all 0.4s ease-in-out;
-    }
-
-    .img-box:hover img {
-        filter: blur(0);
-        opacity: 1;
-    }
-
-    .meta {
-        margin-top: var(--spacing-3);
-        display: flex;
-        gap: var(--spacing-1);
-        align-items: baseline;
-    }
-
-    .title {
-        color: var(--color-content-primary);
-        font-family: var(--font-1);
-        font-weight: var(--font-weight-medium);
-    }
-
-    .year, .sep {
-        color: var(--color-content-secondary);
+        display: block;
     }
 </style>

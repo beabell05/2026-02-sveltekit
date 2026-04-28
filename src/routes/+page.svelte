@@ -2,16 +2,17 @@
     import DesktopTabNavigation from '$lib/components/DesktopTabNavigation.svelte';
     import Project from '$lib/components/Project.svelte';
 
-    // Riceviamo i dati dal caricamento della pagina (+page.js)
-    let { data } = $props();
-    
-    // Partiamo da 'Echoes', visto che lì hai creato i primi progetti!
-    let selectedCategory = $state('Echoes');
+    // Svelte page data from +page.js
+    export let data;
 
-    // Filtriamo i progetti. Aggiunto "data?.projects || []" per evitare blocchi se la cartella è vuota
-    let filteredProjects = $derived(
-        (data?.projects || []).filter(p => p.category === selectedCategory)
-    );
+    // All projects from load
+    $: projects = data?.projects || [];
+
+    // Selected category for tabs (default: show 'Sanctuary')
+    let selectedCategory = 'Sanctuary';
+
+    // Reactive filtered list by selectedCategory
+    $: filteredProjects = projects.filter(p => (p.category || '').toLowerCase() === selectedCategory.toLowerCase());
 </script>
 
 <main class="page-wrapper">
@@ -28,20 +29,20 @@
             </p>
         </div>
 
-        <div class="nav-container">
-            <DesktopTabNavigation 
-                activeCategory={selectedCategory} 
-                onCategoryChange={(item) => selectedCategory = item} 
-            />
-        </div>
+        <!-- Navigation removed: showing all projects -->
     </header>
 
     <section class="projects-grid">
+            <div class="nav-container">
+            <DesktopTabNavigation 
+                activeCategory={selectedCategory}
+                onCategoryChange={(item) => selectedCategory = item}
+            />
+        </div>
+
         <div class="grid">
             {#if filteredProjects.length === 0}
-                <p class="empty-message">
-                    Nessun progetto trovato in {selectedCategory}.
-                </p>
+                <p class="empty-message">Nessun progetto disponibile per {selectedCategory}.</p>
             {:else}
                 {#each filteredProjects as project}
                     <Project {...project} />
