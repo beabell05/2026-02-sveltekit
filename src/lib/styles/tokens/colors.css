@@ -26,7 +26,7 @@
     --neutral-900: #030404;
 
     /* ==========================================
-       TOKENS: DARK MODE (Default site theme)
+       TOKENS: DARK MODE (Tema di default)
        ========================================== */
     /* Background */
     --color-background-primary: var(--neutral-900);
@@ -42,11 +42,14 @@
 
     /* Filter */
     --color-filter-background-selected: var(--brand-600);
-    --color-filter-content-hover: var(--neutral-100);
+    --color-filter-content-hover: var(--brand-500);
     --color-filter-content-selected: var(--neutral-50);
 }
 
-@media screen and (prefers-color-scheme: dark) {
+/* ==========================================
+   TOKENS: LIGHT MODE (Attivato dal sistema operativo)
+   ========================================== */
+@media (prefers-color-scheme: dark) {
     :root {
         /* Background */
         --color-background-primary: var(--neutral-50);
@@ -61,8 +64,8 @@
         --color-links-hover: var(--brand-500);
 
         /* Filter */
-        --color-filter-background-selected: var(--brand-500);
-        --color-filter-content-hover: var(--neutral-200);
+        --color-filter-background-selected: var(--brand-600);
+        --color-filter-content-hover: var(--brand-500);
         --color-filter-content-selected: var(--neutral-50);
     }
 }

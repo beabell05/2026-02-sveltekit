@@ -18,12 +18,17 @@
 </div>
 
 <style>
-    .tabs { display: flex; gap: var(--spacing-5); align-items: center; }
+    .tabs { 
+        display: flex; 
+        gap: var(--spacing-5); 
+        align-items: center; 
+    }
 
     .tab {
         background: transparent;
         border: none;
-        color: #ffffff;
+        /* 👇 Usa il tuo token per i link inattivi */
+        color: var(--color-links-default); 
         padding: var(--spacing-2) var(--spacing-4);
         border-radius: var(--radius-full);
         cursor: pointer;
@@ -32,6 +37,14 @@
         transition: all 0.2s ease;
     }
 
-    .tab.active { background-color: var(--brand-500); }
-    .tab:not(.active):hover { color: var(--brand-500); }
+    .tab.active { 
+        /* 👇 Usa i tuoi token per il bottone attivo */
+        background-color: var(--color-filter-background-selected); 
+        color: var(--color-filter-content-selected);
+    }
+    
+    .tab:not(.active):hover { 
+        /* 👇 Usa il token per l'hover */
+        color: var(--color-links-hover); 
+    }
 </style>
